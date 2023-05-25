@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--for the demo paragraph-->
+    <script>
+        function myFunction() {
+          document.getElementById("demopara").innerHTML = "Paragraph changed.";
+        }
+    </script>
+</head>
+
+<body>
+
+<h2>My First JavaScript</h2>
+
+<button type="button"
+onclick="document.getElementById('demo').innerHTML = Date()">
+Click me to display Date and Time.</button>
+
+<p id="demo"></p>
+
+<script>
+    var x = 5;
+    var y = 10;
+    var z = x+y;
+    alert(z);
+    // another way
+    var x = 5, y = 10, z = x+y;
+    alert(10*5)
+</script>
+
+<!--turn bulb on and off by switching pic-->
+<hr>
+<button onclick="document.getElementById('myImage').src='pic_bulbon.gif'">Turn on the light</button>
+<img id="myImage" src="pic_bulboff.gif" style="width:100px">
+<button onclick="document.getElementById('myImage').src='pic_bulboff.gif'">Turn off the light</button>
+
+<!--change font with button-->
+<hr>
+<p id="demofont">JavaScript can change the style of an HTML element.</p>
+<button type="button" onclick="document.getElementById('demodfont').style.fontSize='50px'">Click Me!</button>
+
+<!--hide and reveal element-->
+<hr>
+<p id="demohide">JavaScript can hide HTML elements.</p>
+<button type="button" onclick="document.getElementById('demohide').style.display='none'">Hide Me!(none)</button>
+<button type="button" onclick="document.getElementById('demohide').style.display='block'">Reveal Me!(block)</button>
+
+<!--demo paragraph func in head-->
+<hr>
+<p id="demopara">A Paragraph.</p>
+<button type="button" onclick="myFunction()">JS func in head</button>
+
+<!--demo paragraoh func external file-->
+<hr>
+<p id="demojsexternal">this exp links to "myScript.js"</p>
+<button type="button" onclick="myFunction()">Para external</button>
+<script src="externaljspara.js"></script>
+</body>
+
+<!--output out-->
+<hr>
+<p>JS prints out the sum of 5+6</p>
+<p id="demo11"></p>
+<script>
+document.getElementById("demo11").innerHTML= 5+6;
+</script>
+
+<!--.write() overrides everything in the html-->
+<!--use for testing-->
+<hr>
+<p>will i get deleted?</p>
+<script>
+    document.write(5 + 6);
+ </script>
+
+<!--window.alert()-->
+<hr>
+<script>window.aler(5+6)</script>
+
+<!--window.print()-->
+<button onclick="window.print()">Print this page</button>
+
+<!--
+-var        Declares a variable
+-let	    Declares a block variable
+-const	    Declares a block constant
+-if	        Marks a block of statements to be executed on a condition
+-switch	    Marks a block of statements to be executed in different cases
+-for	    Marks a block of statements to be executed in a loop
+-function	Declares a function
+-return	    Exits a function
+-try	    Implements error handling to a block of statements
+-->
+
+<script>
+const person = {
+    firstName: "John",
+    lastName: "Doe"
+};
+  
+alert(person.firstname);
+</script>
+
+<!--You cannot redeclare a let, but a var can-->
+<!--
+let x = "John";
+let x=0:
+won't work
+var x="John";
+var x=0;
+this works
+-->
+
+<!--block scope-->
+<script>
+{let x=2;}
+// x can NOT be used here
+{let x=2;}
+// x CAN be used here
+</script>
+<!-- ---------LET---------- -->
+<!-- redeclare in block-->
+<script>
+let x=10; // here x is 10
+{let x=2;} //here x is 2
+//here x is still 10
+</script>
+
+<script>
+var x = 2;   // Allowed
+let x = 3;   // Not allowed
+{
+let x = 2;   // Allowed
+let x = 3;   // Not allowed
+}
+{
+let x = 2;   // Allowed
+var x = 3;   // Not allowed
+}
+</script>
+
+<script>
+let x = 2;   // Allowed
+{
+let x = 3;   // Allowed
+}
+{
+let x = 4;    // Allowed
+}
+</script>
+
+<!-- can use var even when being declared later-->
+<script>
+    carName="Volvo";
+    var carname;
+    // still works
+</script>
+
+<!-- -------- CONTS ------------ -->
+<!--Redeclaring a JavaScript var variable is allowed anywhere in a program:-->
+<script>
+var x = 2;     // Allowed
+var x = 3;     // Allowed
+x = 4;         // Allowed
+
+//Redeclaring an existing var or let variable to const, in the same scope, is not allowed:
+var x = 2;     // Allowed
+const x = 2;   // Not allowed
+{
+let x = 2;     // Allowed
+const x = 2;   // Not allowed
+}
+{
+const x = 2;   // Allowed
+const x = 2;   // Not allowed
+}
+
+// Reassigning an existing const variable, in the same scope, is not allowed:
+const x = 2;     // Allowed
+x = 2;           // Not allowed
+var x = 2;       // Not allowed
+let x = 2;       // Not allowed
+const x = 2;     // Not allowed
+
+{
+  const x = 2;   // Allowed
+  x = 2;         // Not allowed
+  var x = 2;     // Not allowed
+  let x = 2;     // Not allowed
+  const x = 2;   // Not allowed
+}
+
+// Redeclaring a variable with const, in another scope, or in another block, is allowed:
+const x = 2;       // Allowed
+{
+  const x = 3;   // Allowed
+}
+{
+  const x = 4;   // Allowed
+}
+</script>
+
+<!--
+JavaScript has 8 Datatypes
+1. String
+2. Number
+3. Bigint
+4. Boolean
+5. Undefined
+6. Null
+7. Symbol
+8. Object
+
+The Object Datatype
+The object data type can contain:
+
+1. An object
+2. An array
+3. A date
+-->
+
+<!-- -----FUNCTION----- -->
+<hr>
+<p>functions</p>
+<p id="demofunc"></p>
+<p id=celsius></p>
+
+<script>
+var x = myFunction(4, 3);
+document.getElementById("demofunc").innerHTML = x;
+function myFunction(a, b) {
+  return a * b;
+}
+
+document.getElementById("celsius").innerHTML =
+"The temperature is " + toCelsius(77) + " Celsius";
+function toCelsius(temp) {
+    return (5/9)*(temp-32)
+}
+</script>
+
+
+<!-- STOPPED at JS Events-->
+
+
+</html> 

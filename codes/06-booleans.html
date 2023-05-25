@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Variables</title>
+</head>
+<body>
+    <p id="3<5"></p>
+    <p id="=="></p>
+    <p id="==="></p>
+    <script>
+        document.getElementById("3<5").innerHTML = 3<5; // true
+        document.getElementById("==").innerHTML = (5=='5.00'); // true eventhough diff
+        document.getElementById("===").innerHTML = (5==='5.00'); // false
+    </script>
+</body>
+</html>
